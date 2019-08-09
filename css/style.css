@@ -1,47 +1,212 @@
-@font-face {
-    font-family: "Game Of Thrones";
-    src: url("game of thrones font/Game of Thrones.ttf");
+
+body {
+	
+	/*background-color: #ffffff; change to black after finish with layout*/
+	color: #fff;
+	font-family: Game-Of-Thrones, sans-serif; 
+	letter-spacing: .1em;
+	margin: 0;
+	overflow-x: hidden;
+	text-align: center;
+}
+
+button {
+	border: 0;
+	box-shadow: 3px 3px 3px #222;
+	color: #222; 
+	cursor: pointer;
+	font-family: Game-Of-Thrones;
+	font-size: 25px; 
+	margin: 10px auto;
+	padding: 10px 0;
+	width: 170px; 
+}
+
+button:hover {
+	background-color: #ccc;
 }
 
 h1 {
-    text-align: center;
-    font-family: "Game Of Thrones";
-        /*font-family: "myFirstFont";
-        src: url("~/code/projects/war/game of thrones font.tff");
-        @font-face {
-            font-family: "myFirstFont";
-            src: url("~/code/projects/war/game of thrones font.tff");
-        } */
-    
+	font-size: 100px; 
+	font-family: Game-Of-Thrones; 
+	/*font-weight: bolder;*/
+	margin: 0 0 20px 0;
+	padding: 0;
 }
 
-.gameboard {
-    justify-content: center;
+h2 {
+	font-size: 40px;
 }
-#button {
-    background-color:#d5a02a;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    font-size: 16px;
-    cursor: pointer;
-    }
-  
-  #button:hover {
-    background-color: red;
-  }
-#action {
-    display: flex;
-    justify-content: center;
-}
-.gameBoard {
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
 
+h3 {
+	font-size: 40px; 
+	font-family: Game-Of-Thrones; 
+	margin: 0;
+	padding: 0; 
 }
-#card1 {
-    display: flex;
-  align-items: center;
-  justify-content: center;
+
+img {
+	border-radius: 10px; 
+	
+	width: 100%;
 }
+
+footer {
+	color: #e8e8e8;
+	margin-top: 50px;
+	padding: 10px 0;
+	width: 100%;
+}
+
+#jumbotron {
+	background-color: #000000;
+	padding: 40px 0 16px; 
+}
+
+#jumbotron h3 {
+	-vendor-animation-delay: 2s;
+}
+
+#header {
+	background-color: #CF6766;
+	padding: 5px 20px 10px;
+	max-width: 100%;
+	overflow: hidden;
+	text-align: left;
+	width: 100%;
+}
+
+#boardwrap {
+	margin: auto; 
+	padding: 30px 0;
+	width: 90%;
+	font color: #e4cf1b;
+}
+
+#howTo div {
+	display: inline-block;
+	font-size: 20px;
+	margin: 40px 20px; 
+	max-width: 500px; 
+	text-align: justify; 
+	vertical-align: top; 
+	width: 80%; 
+}
+
+#desktop {
+	margin-top: 100px;
+}
+
+#playButton {
+	margin-top: 20px;
+	width: 150px;
+	font color: #e4cf1b;
+}
+
+
+
+#warText {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#warArea {
+	background: rgba(0,0,0,0.7);
+	height: 60vh;
+	left: 0;
+	line-height: 60vh;
+	position: fixed;
+	top: 10vh;
+	width: 100vw;
+	z-index: 900;
+}
+
+#warArea div {
+	display: inline-block;
+	margin: 0 20px;
+	max-width: 200px;
+	width: 20%;
+	vertical-align: middle;
+}
+
+
+.playerWarCards, .compWarCards {
+	position: relative;
+	top: -142px;
+}
+
+.playerWarCards img, .compWarCards img {
+	display: inline-block;
+	position: absolute;
+}
+
+.playerWarCards img:first-child, .compWarCards img:first-child {
+	left: 0;
+}
+
+.playerWarCards img:nth-child(2) {
+	left: -10px;
+	z-index: 901;
+}
+
+.playerWarCards img:nth-child(3) {
+	left: -20px;
+	z-index: 902;
+}
+
+.compWarCards img:nth-child(2) {
+	left: 10px;
+	z-index: 901;
+}
+
+.compWarCards img:nth-child(3) {
+	left: 20px;
+	z-index: 902;
+}
+
+
+.gameHeader {
+	margin: auto;
+	padding: 20px 0;
+	width: 85%;
+}
+
+.gameHeader div {
+	display: inline-block; 
+	vertical-align: middle;
+}
+
+.playerDeck {
+max-width: 50%;
+    height: auto;
+    width: auto
+}
+
+
+.playCount, .compCount { 
+	font-size: 20px; 
+	font-weight: bolder;
+	margin: auto;
+	width: 20%;
+}
+
+.result {
+	font-size: 25px; 
+	font-weight: bolder;
+	margin: auto; 
+	width: 40%;
+}
+
+.gameTable div {
+	
+	display: inline-block;  
+	margin: 0;
+	vertical-align: middle;
+	width: 180px;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+	

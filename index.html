@@ -1,46 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>War!</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/app.js⁩"></script>
-    <!--<script defer src="js/main.js"></script>-->
-</head>
-<body>
-    <h1>WAR CARD GAME</h1>
-    <div class="gameboard"> <!--gameboard-->
-            <!--card count-->
-            <div class="playCount">Player Cards: 26</div>
-            <div class="result"></div>
-            <div class="compCount">Player Cards: 26</div>
+<html>	
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" contingent="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Game Of War</title>
+		<script src='js/app.js'></script>
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
+		<style>
+			body {
+			background-image: url("card-deck-css/images/winterfell2.jpg");
+			background-repeat: no-repeat;
+ 			background-size: cover;
+			background-position: center;
+			} 
+			@font-face {
+    		font-family: Game-Of-Thrones;
+   			 src: url(css/Game-Of-Thrones-font/Game-of-Thrones.ttf);
+			}
+			
+			.snowflake {
+  			color: #fff;
+  			font-size: 1em;
+  			font-family: Arial, sans-serif;
+  			text-shadow: 0 0 5px #000;
+			}
+			@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
 
-        <div id="start"></div>
-        <div id="message"></div>
-        <div id="board"></div>
-            <div id="player1" class="players">
-                <div class="score"></div>
-                <div class="hand"></div>
-            </div>
-        <div id="Computer" class="players">
-                <div class="score"></div>
-                <div class="hand"></div>
-        </div>
-           
-        </div>
-    </div>
-    
-    <div id="action">
-            <button id="button">DEAL</button>
+		</style>
+	</head>
 
+	<body>
+		
+		<div class='jumbotron' id='jumbotron'>
+			<h1 class='animated flipInX'>Game Of War</h1>
+			</div><!-- end jumbotron div -->
+		
+		<div id='header' style="display: none;">
+			<h3>WAR!</h3>
+		</div><!-- end header -->
 
-<p>
-        <img src="https://imgur.com/VtJg083" alt="GOT Card" id="card1">
+		<div id="boardwrap">
 
-</p>
+			<!--PLAY BUTTON <div><button id='playButton' onclick="play()">PLAY</button></div>-->
+			
+			</div><!-- End howToPlay div -->
 
-</body>
+			<div id="warAnimation" class="war"><div id="warText">WAR!!!</div></div>
+
+			<div id="warArea" style='display: none;'>
+				<div class='playerWarFinal'></div>
+				<div class='playerWarCards'></div>
+				<div class='compWarCards'></div>
+				<div class='compWarFinal'></div>
+			</div><!-- End warArea div -->
+			
+			<div id='gameboard'>
+				<div id='desktop' class="game animated fadeInUp">
+					
+				<div class="gameHeader">
+						<div class="playCount"></div>
+						<div class="result"></div>
+						<div class="compCount"></div>
+					</div><!--End gameHeader div -->
+					
+					<div class="gameTable">
+						<div class="playerDeck"><img src="css/GOT CARD.png"></div>
+						<div class="playerCard"></div>
+						<div class="middleGround">
+							<button class="deal" onclick="deal()">DEAL</button><br>
+							<button class="newGame" onclick="location.reload()">NEW GAME</button>
+						</div><!-- End middleGround div -->
+						<div class="compCard"></div>
+						<div class="compDeck"><img src="css/GOT CARD.png"></div>
+					</div><!-- End gameTable div -->
+					
+				</div><!-- End desktop div -->
+
+			
+					</div><!-- End compArea div -->
+				</div><!-- End mobile div -->
+			</div><!-- End gameboard div -->
+
+		</div><!-- End boardwrap div -->
+		
+		
+		
+<div class="snowflakes" aria-hidden="true"> 
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+    ❅
+  </div>
+  <div class="snowflake">
+    ❆
+  </div>
+  <div class="snowflake">
+    ❅
+  </div>
+  <div class="snowflake">
+    ❆
+  </div>
+  <div class="snowflake">
+    ❅
+  </div>
+  <div class="snowflake">
+    ❆
+  </div>
+		<footer>
+		
+		</footer>
+	</body>
 </html>
