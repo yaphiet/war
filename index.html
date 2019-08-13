@@ -7,16 +7,16 @@
 		
 		<title>Game Of War</title>
 		
-		<script src='js/app.js'></script>
+		
 		<link rel="stylesheet" href="css/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
 
 		<style>
 			body {
 			background-image: url("card-deck-css/images/winterfell2.jpg");
 			background-repeat: no-repeat;
  			background-size: cover;
-			background-position: center;
+			background-position: top;
 			} 
 			@font-face {
     		font-family: Game-Of-Thrones;
@@ -31,6 +31,305 @@
 			}
 			@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
 
+
+body {
+	
+	/*background-color: #ffffff; change to black after finish with layout*/
+	color: #fff;
+	font-family: Game-Of-Thrones, sans-serif; 
+	letter-spacing: .1em;
+	margin: 0;
+	overflow-x: hidden;
+	text-align: center;
+}
+
+button {
+	border: 0;
+	box-shadow: 3px 3px 3px #222;
+	color: #222; 
+	cursor: pointer;
+	font-family: Game-Of-Thrones;
+	font-size: 25px; 
+	margin: 10px auto;
+	padding: 10px 0;
+	width: 170px; 
+}
+
+button:hover {
+	background-color: #ccc;
+}
+
+h1 {
+	font-size: 100px; 
+	font-family: Game-Of-Thrones; 
+	/*font-weight: bolder;*/
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+h2 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 40px; 
+	font-family: Game-Of-Thrones; 
+	margin: 0;
+	padding: 0; 
+}
+
+
+
+footer {
+	color: #e8e8e8;
+	margin-top: 50px;
+	padding: 10px 0;
+	width: 100%;
+}
+
+#jumbotron {
+	background-color: #000000;
+	padding: 40px 0 16px; 
+}
+
+#jumbotron h3 {
+	-vendor-animation-delay: 2s;
+}
+
+#header {
+	background-color: #CF6766;
+	padding: 5px 20px 10px;
+	max-width: 100%;
+	overflow: hidden;
+	text-align: left;
+	width: 100%;
+}
+
+#boardwrap {
+	margin: auto; 
+	padding: 30px 0;
+	width: 90%;
+	font color: #e4cf1b;
+}
+
+#howTo div {
+	display: inline-block;
+	font-size: 20px;
+	margin: 40px 20px; 
+	max-width: 500px; 
+	text-align: justify; 
+	vertical-align: top; 
+	width: 80%; 
+}
+
+#desktop {
+	margin-top: 100px;
+}
+
+#playButton {
+	margin-top: 20px;
+	width: 150px;
+	font color: #e4cf1b;
+}
+
+
+
+#warText {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#warArea {
+	background: rgba(0,0,0,0.7);
+	height: 60vh;
+	left: 0;
+	line-height: 60vh;
+	position: fixed;
+	top: 10vh;
+	width: 100vw;
+	z-index: 900;
+}
+
+#warArea div {
+	display: inline-block;
+	margin: 0 20px;
+	max-width: 200px;
+	width: 20%;
+	vertical-align: middle;
+}
+
+
+.playerWarCards, .compWarCards {
+	position: relative;
+	top: -142px;
+}
+
+.playerWarCards img, .compWarCards img {
+	display: inline-block;
+	position: absolute;
+}
+
+.playerWarCards img:first-child, .compWarCards img:first-child {
+	left: 0;
+}
+
+.playerWarCards img:nth-child(2) {
+	left: -10px;
+	z-index: 901;
+}
+
+.playerWarCards img:nth-child(3) {
+	left: -20px;
+	z-index: 902;
+}
+
+.compWarCards img:nth-child(2) {
+	left: 10px;
+	z-index: 901;
+}
+
+.compWarCards img:nth-child(3) {
+	left: 20px;
+	z-index: 902;
+}
+
+
+.gameHeader {
+	margin: auto;
+	padding: 20px 0;
+	width: 85%;
+}
+
+.gameHeader div {
+	display: inline-block; 
+	vertical-align: middle;
+}
+
+.playerDeck {
+max-width: 50%;
+    height: auto;
+    width: auto
+}
+
+
+.playCount, .compCount { 
+	font-size: 20px; 
+	font-weight: bolder;
+	margin: auto;
+	width: 20%;
+}
+
+.res {
+	background-color: black;
+	font-size: 2em
+}
+.result {
+	font-size: 25px; 
+	font-weight: bolder;
+	margin: auto; 
+	width: 40%;
+}
+
+.gameTable div {
+	
+	display: inline-block;  
+	margin: 0;
+	vertical-align: middle;
+	width: 180px;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+img {
+	border-radius: 10px; 
+	
+	width: 100%;
+}
+.hide {
+	display: none;
+}
+
+.player {
+	display: inline-block;
+	width: 200px;
+	min-height: 600px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 2em;
+	border: 1px solid #ddd;
+}
+
+.card {
+	display: block;
+	margin: auto;
+	padding: 7px;
+	height: 110px;
+	width: 80px;
+	margin-top: 10px;
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 5px 10px #333;
+}
+
+.big {
+	font-size: 1.5em;
+	text-align: center;
+	line-height: 45px;
+	margin-top: 10px;
+	display: block;
+}
+
+.red {
+	color: red;
+}
+
+.tiny {
+	display: block;
+	font-size: 0.6em;
+	line-height: 12px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.stats {
+	margin-top: 25px;
+	font-size: 0.8em;
+}
+
+.gameplay {
+	
+}
+
+.message {
+	font-size: 1.2em;
+	padding: 10px;
+	background-color: black;
+}
+
+.start {
+	font-size: 1.5em;
+	text-align: center;
+	padding: 10px;
+	background-color: black;
+	color: white;
+}
+
+.attack {
+	font-size: 1.2em;
+	text-align: center;
+	padding: 10px;
+	background-color: black;
+	color: white;
+}
+
+input {
+	width: 85px;
+	font-size: 2em;
+}
+
+
+	
 		</style>
 	</head>
 
@@ -45,28 +344,27 @@
 		</div><!-- end header -->
 
 		<div id="boardwrap">
-
+			<div class="message">Select number of Players</div>
+   		 <div class="userPlay">
+        <input type="number" value="2">
+        <button class="start">Start</button>
+        <button class="hide attack">Attack</button>
+        <div class="gameplay"></div>
+        <div class="res"></div>
 			<!--PLAY BUTTON <div><button id='playButton' onclick="play()">PLAY</button></div>-->
 			
 			</div><!-- End howToPlay div -->
 
-			<div id="warAnimation" class="war"><div id="warText">
-
-			<div id="warArea" style='display: none;'>
-				<div class='playerWarFinal'></div>
-				<div class='playerWarCards'></div>
-				<div class='compWarCards'></div>
-				<div class='compWarFinal'></div>
-			</div><!-- End warArea div -->
 			
-			<div id='gameboard'>
+			
+			<!-- div id='gameboard'>
 				<div id='desktop' class="game animated fadeInUp">
 					
 				<div class="gameHeader">
 						<div class="playCount"></div>
 						<div class="result"></div>
 						<div class="compCount"></div>
-					</div><!--End gameHeader div -->
+					</div><!--End gameHeader div 
 					
 					<div class="gameTable">
 						<div class="playerDeck"><img src="css/GOT CARD.png"></div>
@@ -74,12 +372,12 @@
 						<div class="middleGround">
 							<button class="deal" onclick="deal()">DEAL</button><br>
 							<button class="newGame" onclick="location.reload()">NEW GAME</button>
-						</div><!-- End middleGround div -->
+						</div><!-- End middleGround div 
 						<div class="compCard"></div>
 						<div class="compDeck"><img src="css/GOT CARD.png"></div>
-					</div><!-- End gameTable div -->
+					</div><!-- End gameTable div 
 					
-				</div><!-- End desktop div -->
+				</div> End desktop div -->
 
 			
 					</div><!-- End compArea div -->
@@ -126,8 +424,222 @@
   <div class="snowflake">
     ❆
   </div>
-		<footer>
+
+  <audio controls autoplay>
+
+		<source src="gottheme.mp3" type="audio/mpeg">
 		
-		</footer>
-	</body>
+	  </audio>
+
+<script>
+const message = document.querySelector(".message");
+        const buttons = document.querySelectorAll("button");
+        const gameplay = document.querySelector(".gameplay");
+        const userPlay = document.querySelector(".userPlay");
+        const res = document.querySelector(".res");
+        let deck = [];
+        let players = [];
+        let deals = [];
+        let round = 0;
+        let inplay = false;
+        let total = 0;
+        message.style.color = "red";
+        const ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+        //const ranks = [2, 3];
+        const suits = ["hearts", "diams", "clubs", "spades"];
+        buttons.forEach(function (item) {
+            item.addEventListener("click", playGame);
+        })
+
+        function playGame(e) {
+            let temp = e.target.textContent;
+            if (temp == "Start") {
+                message.style.color = "black";
+                btnToggle();
+                startGame();
+            }
+            if (temp == "Attack") {
+                let tempRuns = document.querySelector("input").value;
+                res.innerHTML = "";
+                round = 0;
+                for (let x = 0; x < tempRuns; x++) {
+                    if (inplay) {
+                        message.innerHTML = "Round " + (x + 1);
+                        makeCards();
+                    }
+                }
+            }
+        }
+
+        function btnToggle() {
+            buttons[0].classList.toggle("hide");
+            buttons[1].classList.toggle("hide");
+        }
+
+        function startGame() {
+            inplay = true;
+            gameplay.innerHTML = "";
+            let numberPlayers = document.querySelector("input").value;
+            buildDeck();
+            setupPlayers(numberPlayers);
+            dealCards(0);
+            makeCards();
+            document.querySelector("input").value = "1";
+        }
+
+        function showCard(el, card) {
+            if (card != undefined) {
+                el.style.backgroundColor = "white";
+                let html1 = card.rank + "<br>&" + card.suit + ";";
+                let html2 = card.rank + "&" + card.suit + ";";
+                let div = document.createElement("div");
+                div.classList.add("card");
+                if (card.suit === "hearts" || card.suit === "diams") {
+                    div.classList.add("red");
+                }
+                let span1 = document.createElement("span");
+                span1.innerHTML = html2;
+                span1.classList.add("tiny");
+                div.appendChild(span1);
+                let span2 = document.createElement("span");
+                span2.innerHTML = html1;
+                span2.classList.add("big");
+                div.appendChild(span2);
+                el.appendChild(div);
+            }
+        }
+
+        function dealRound(playerList, tempHolder) {
+            let curWinner = {
+                "high": null
+                , "player": playerList[0]
+            }
+            let playoff = [];
+            for (let x = 0; x < playerList.length; x++) {
+                let tempPlayerIndex = playerList[x];
+                if (deals[tempPlayerIndex].length > 0) {
+                    let card = deals[tempPlayerIndex].shift();
+                    if (curWinner.high == card.value) {
+                        if (playoff.length == 0) {
+                            playoff.push(curWinner.player);
+                        }
+                        playoff.push(tempPlayerIndex);
+                    }
+                    if (!curWinner.high || curWinner.high < card.value) {
+                        playoff = [];
+                        curWinner.high = card.value;
+                        curWinner.player = tempPlayerIndex;
+                        curWinner.card = card;
+                    }
+                    tempHolder.push(card);
+                    showCard(players[tempPlayerIndex], card);
+                }
+            }
+            if (playoff.length > 0) {
+                dealRound(playoff, tempHolder);
+            }
+            else {
+                updater(curWinner.player, tempHolder);
+            }
+        }
+
+        function makeCards() {
+            let tempHolder = [];
+            let playerList = [];
+            for (let x = 0; x < players.length; x++) {
+                players[x].innerHTML = "";
+                if (deals[x].length > 0) {
+                    playerList.push(x);
+                }
+            }
+            if (playerList.length == 1) {
+                winGame();
+            }
+            dealRound(playerList, tempHolder);
+        }
+
+        function winGame() {
+			message.style.color = "red";
+			 
+            btnToggle();
+            inplay = false;
+            for (let x = 0; x < players.length; x++) {
+                players[x].innerHTML += (deals[x].length >= total) ? "<br>WINNER" : "<br>LOSER";
+            }
+            message.innerHTML = "Select number of players";
+            document.querySelector("input").value = "2";
+        }
+
+        function updater(winner, tempHolder) {
+            players[winner].style.backgroundColor = "#4f9efa";
+            tempHolder.sort(function () {
+                return .5 - Math.random();
+            })
+            for (let record of tempHolder) {
+                deals[winner].push(record);
+            }
+            for (let x = 0; x < players.length; x++) {
+                let div = document.createElement("div");
+                div.classList.add("stats");
+                if (deals[x].length == total) {
+                    div.innerHTML = "Total " + deals[x].length + " cards";
+                    winGame();
+                }
+                else {
+                    div.innerHTML = deals[x].length < 1 ? "Lost" : "Cards:" + (deals[x].length);
+                }
+                players[x].appendChild(div);
+            }
+            res.innerHTML += "Player " + (winner + 1) + " won " + tempHolder.length + " cards<br>";
+        }
+
+        function dealCards(playerCard) {
+            playerCard = (playerCard >= players.length) ? 0 : playerCard;
+            if (deck.length > 0) {
+                let randIndex = Math.floor(Math.random() * deck.length);
+                let card = deck.splice(randIndex, 1)[0];
+                deals[playerCard].push(card);
+                playerCard++;
+                return dealCards(playerCard);
+            }
+            else {
+                message.textContent = "cards dealt now";
+                return;
+            }
+        }
+        // got help with this one
+        function setupPlayers(num) {
+            players = [];
+            deals = [];
+            for (let x = 0; x < num; x++) {
+                let div = document.createElement("div");
+                div.setAttribute("id", "player" + (x + 1));
+                div.classList.add("player");
+                let div1 = document.createElement("div");
+                div1.textContent = "Player " + (parseInt(x) + 1);
+                players[x] = document.createElement("div");
+                players[x].textContent = "Cards";
+                div.appendChild(div1);
+                div.appendChild(players[x]);
+                gameplay.appendChild(div);
+                deals.push([]);
+            }
+        }
+
+        function buildDeck() {
+            deck = [];
+            for (let i = 0; i < suits.length; i++) {
+                for (let j = 0; j < ranks.length; j++) {
+                    let card = {};
+                    total++;
+                    card.suit = suits[i];
+                    card.rank = ranks[j];
+                    card.value = (j + 1);
+                    deck.push(card);
+                }
+            }
+        }
+</script>
+</body>
+
 </html>
